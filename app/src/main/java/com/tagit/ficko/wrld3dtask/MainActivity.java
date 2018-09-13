@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         EegeoApi.init(this, API_KEY);
 
         setContentView(R.layout.main_activity);
-        m_mapView = (MapView) findViewById(R.id.mapView);
+        m_mapView = findViewById(R.id.mapView);
         m_mapView.onCreate(savedInstanceState);
 
         m_mapView.getMapAsync(new OnMapReadyCallback() {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onMapReady(final EegeoMap map) {
                 m_eegeoMap = map;
 
-                RelativeLayout uiContainer = (RelativeLayout) findViewById(R.id.eegeo_ui_container);
+                RelativeLayout uiContainer = findViewById(R.id.eegeo_ui_container);
                 m_interiorView = new IndoorMapView(m_mapView, uiContainer, m_eegeoMap);
 
                 Toast.makeText(MainActivity.this, "Welcome to Eegeo Maps.\n©Tomislav Fičko.", Toast.LENGTH_LONG).show();

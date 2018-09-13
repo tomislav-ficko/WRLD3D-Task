@@ -1,6 +1,7 @@
 package com.tagit.ficko.wrld3dtask;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RelativeLayout;
 
 import com.eegeo.indoors.IndoorMapView;
@@ -12,7 +13,9 @@ import com.eegeo.mapapi.map.OnMapReadyCallback;
 import com.eegeo.mapapi.markers.Marker;
 import com.eegeo.mapapi.markers.MarkerOptions;
 
-public class MarkerActivity extends MainActivity {
+public class MarkerActivity extends AppCompatActivity {
+
+    public static final String API_KEY = "e86c3136930aa05c1d0efe0642fa1f26";
 
     private MapView m_mapView;
     private EegeoMap m_eegeoMap = null;
@@ -25,7 +28,7 @@ public class MarkerActivity extends MainActivity {
         EegeoApi.init(this, API_KEY);
 
         setContentView(R.layout.marker_activity);
-        m_mapView = (MapView) findViewById(R.id.add_indoor_marker_mapview);
+        m_mapView = findViewById(R.id.add_indoor_marker_mapview);
         m_mapView.onCreate(savedInstanceState);
 
         m_mapView.getMapAsync(new OnMapReadyCallback() {
@@ -33,17 +36,20 @@ public class MarkerActivity extends MainActivity {
             public void onMapReady(final EegeoMap map) {
                 m_eegeoMap = map;
 
-                RelativeLayout uiContainer = (RelativeLayout) findViewById(R.id.eegeo_ui_container);
+                RelativeLayout uiContainer = findViewById(R.id.eegeo_ui_container);
                 m_indoorMapView = new IndoorMapView(m_mapView, uiContainer, m_eegeoMap);
 
-                m_marker = m_eegeoMap.addMarker(new MarkerOptions()
-                        .position(
-                                new LatLng(
-                                        Long.parseLong("@string/latitude"),
-                                        Long.parseLong("@string/longitude"))
-                        )
-                        .indoor("california_academy_of_sciences", 1)
-                        .labelText("Coffee time"));
+                if (m_eegeoMap.getCurrentFloorIndex() == 1) {
+                    m_marker = m_eegeoMap.addMarker(new MarkerOptions()
+                            .position(
+                                    new LatLng(
+                                            Long.parseLong("@string/marker_latitude"),
+                                            Long.parseLong("@string/marker_longitude"))
+                            )
+                            .indoor("california_academy_of_sciences",
+                                    m_eegeoMap.getCurrentFloorIndex())
+                            .labelText("Coffee time"));
+                }
             }
         });
 

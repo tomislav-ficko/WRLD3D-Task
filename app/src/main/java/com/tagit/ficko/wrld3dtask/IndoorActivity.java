@@ -1,6 +1,7 @@
 package com.tagit.ficko.wrld3dtask;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +15,9 @@ import com.eegeo.mapapi.indoors.OnIndoorExitedListener;
 import com.eegeo.mapapi.map.OnInitialStreamingCompleteListener;
 import com.eegeo.mapapi.map.OnMapReadyCallback;
 
-public class IndoorActivity extends MainActivity {
+public class IndoorActivity extends AppCompatActivity {
+
+    public static final String API_KEY = "e86c3136930aa05c1d0efe0642fa1f26";
 
     private MapView m_mapView;
     private EegeoMap m_eegeoMap = null;
@@ -26,10 +29,10 @@ public class IndoorActivity extends MainActivity {
         EegeoApi.init(this, API_KEY);
 
         setContentView(R.layout.indoor_activity);
-        m_mapView = (MapView) findViewById(R.id.exit_indoor_mapview);
+        m_mapView = findViewById(R.id.exit_indoor_mapview);
         m_mapView.onCreate(savedInstanceState);
 
-        final Button button = (Button) findViewById(R.id.exit_indoor_button);
+        final Button button = findViewById(R.id.exit_indoor_button);
 
         m_mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -71,8 +74,8 @@ public class IndoorActivity extends MainActivity {
             m_eegeoMap.exitIndoorMap();
         } else {
             LatLng indoorMapLatLng = new LatLng(
-                    Long.parseLong("@string/latitude"),
-                    Long.parseLong("@string/longitude")
+                    Long.parseLong("@string/marker_latitude"),
+                    Long.parseLong("@string/marker_longitude")
             );
             m_eegeoMap.moveCamera(CameraUpdateFactory.newLatLng(indoorMapLatLng));
 
