@@ -14,7 +14,7 @@ import com.eegeo.mapapi.indoors.OnIndoorExitedListener;
 import com.eegeo.mapapi.map.OnInitialStreamingCompleteListener;
 import com.eegeo.mapapi.map.OnMapReadyCallback;
 
-public class ExitIndoorActivity extends MapScreen {
+public class IndoorActivity extends MainActivity {
 
     private MapView m_mapView;
     private EegeoMap m_eegeoMap = null;
@@ -25,7 +25,7 @@ public class ExitIndoorActivity extends MapScreen {
         super.onCreate(savedInstanceState);
         EegeoApi.init(this, API_KEY);
 
-        setContentView(R.layout.exit_indoor_activity);
+        setContentView(R.layout.indoor_activity);
         m_mapView = (MapView) findViewById(R.id.exit_indoor_mapview);
         m_mapView.onCreate(savedInstanceState);
 

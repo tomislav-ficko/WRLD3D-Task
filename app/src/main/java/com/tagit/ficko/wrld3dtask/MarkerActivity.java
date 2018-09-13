@@ -12,12 +12,11 @@ import com.eegeo.mapapi.map.OnMapReadyCallback;
 import com.eegeo.mapapi.markers.Marker;
 import com.eegeo.mapapi.markers.MarkerOptions;
 
-public class IndoorMarkerActivity extends MapScreen {
+public class MarkerActivity extends MainActivity {
 
     private MapView m_mapView;
     private EegeoMap m_eegeoMap = null;
     private IndoorMapView m_indoorMapView = null;
-
     private Marker m_marker = null;
 
     @Override
@@ -25,7 +24,7 @@ public class IndoorMarkerActivity extends MapScreen {
         super.onCreate(savedInstanceState);
         EegeoApi.init(this, API_KEY);
 
-        setContentView(R.layout.indoor_marker_activity);
+        setContentView(R.layout.marker_activity);
         m_mapView = (MapView) findViewById(R.id.add_indoor_marker_mapview);
         m_mapView.onCreate(savedInstanceState);
 
