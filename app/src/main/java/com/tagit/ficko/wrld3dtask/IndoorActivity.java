@@ -79,7 +79,7 @@ public class IndoorActivity extends AppCompatActivity {
             );
             m_eegeoMap.moveCamera(CameraUpdateFactory.newLatLng(indoorMapLatLng));
 
-            m_eegeoMap.enterIndoorMap("california_academy_of_sciences");
+            m_eegeoMap.enterIndoorMap("california_academy_of_sciences_19794");
         }
     }
 

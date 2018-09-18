@@ -3,7 +3,7 @@
     <string name="latitude">37.769790</string>
     <string name="longitude">-122.466093</string>
     <string name="marker_latitude">37.769775</string>
-    <string name="marker_longitude">-122.466798</string>
+    <string name="marker_longitude">-122.466777</string>
     <string name="zoom">16</string>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

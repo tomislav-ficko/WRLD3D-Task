@@ -39,17 +39,14 @@ public class MarkerActivity extends AppCompatActivity {
                 RelativeLayout uiContainer = findViewById(R.id.eegeo_ui_container);
                 m_indoorMapView = new IndoorMapView(m_mapView, uiContainer, m_eegeoMap);
 
-                if (m_eegeoMap.getCurrentFloorIndex() == 1) {
-                    m_marker = m_eegeoMap.addMarker(new MarkerOptions()
-                            .position(
-                                    new LatLng(
-                                            Long.parseLong("@string/marker_latitude"),
-                                            Long.parseLong("@string/marker_longitude"))
-                            )
-                            .indoor("california_academy_of_sciences",
-                                    m_eegeoMap.getCurrentFloorIndex())
-                            .labelText("Coffee time"));
-                }
+                m_marker = m_eegeoMap.addMarker(new MarkerOptions()
+                        .position(
+                                new LatLng(
+                                        Long.parseLong("@string/marker_latitude"),
+                                        Long.parseLong("@string/marker_longitude"))
+                        )
+                        .indoor("california_academy_of_sciences_19794", 1)
+                        .labelText("Coffee time"));
             }
         });
 
